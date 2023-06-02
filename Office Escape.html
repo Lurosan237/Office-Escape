@@ -1,0 +1,2547 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta author="Lurosan#BCG">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #mycanvas{
+            margin-left: 35%;
+            margin-top: 5%;
+            border-radius: 5px;
+        }
+        #mycanvas{
+         animation-duration: 4s;
+         animation-name: slidein;
+        }
+
+        @keyframes slidein {
+                 from {
+                       margin-left: -10%;
+                      width: 1%;
+                      height: 100%;
+                    }
+
+                to {
+                  margin-left: 35%;
+                 width: 30%;
+                 height: 50%;
+               }
+        }
+
+        body{
+            background-color: rgb(145, 85, 7);
+        }
+        header{
+            margin: 0;
+            font-family: Copperplate, Copperplate Gothic Light, fantasy;
+            background-color: rgb(252, 175, 74);
+            width: 100%;
+            height: 100px;
+            box-shadow: 30px 20px 1px 10px rgb(230, 119, 28);
+        }
+        #title{
+            margin-left: 0%;
+            font-weight: bolder;
+            margin-top: 0px;
+            font-size: 100px;
+        }
+        #footer{
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-top: 4%;
+            width: 100%;
+            height: 50px;
+            background-color: rgb(243, 178, 98);
+            text-align: center;
+            border-radius: 5px;
+            font-size: xx-large; 
+            font-family: Copperplate, Copperplate Gothic Light, fantasy;
+        }
+
+    </style>
+    <title>Office Escape</title> 
+  </head>
+  <body>
+    <header>
+        <div id="title">
+            <p id="title">Office Escape: The GAME</p>
+        </div>
+    </header>
+	<!--This draws the canvas on the webpage -->
+    <canvas id="mycanvas"></canvas> 
+    <footer>
+        <div id="footer">
+            <p id="footertext">
+                Copyright&copy; 2022 By Lurosan#BCG
+            </p>
+        </div>
+    </footer>
+  </body>
+ 
+  <!-- Include the processing.js library -->
+  <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+  <script src="processing.js"></script> 
+  <script>
+  var programCode = function(processingInstance) {
+    with (processingInstance) {
+      size(600, 600); 
+      frameRate(55);
+        
+      // Paste code from Khan Academy here:
+      
+
+textAlign(CENTER, CENTER);
+textFont(createFont('Default Bold'));
+cursor(ARROW);
+smooth();
+
+var page = 'menu';
+var clicked = false;
+var over = false;
+mouseClicked = function(){
+    clicked = true;
+};
+
+var images = {
+    'plant': function(){
+        noFill();
+        stroke(57, 122, 47);
+        strokeWeight(100/33.3);
+        bezier(0+100/2.00, 0+100/1.62, 0+100/2.57, 0+100/3.51, 0+100/1.23, 0+100/2.37, 0+100/2.68, 0);
+        bezier(0+100/1.92, 0+100/1.62, 0+100/2.40, 0+100/3.51, 0+100/1.23, 0+100/2.37, 0+100/2.68, 0);
+        bezier(0+100/2.11, 0+100/1.62, 0+100/2.66, 0+100/3.51, 0+100/1.23, 0+100/2.37, 0+100/2.68, 0);
+        noStroke();
+        fill(55, 94, 32);
+        beginShape();
+        vertex(0+100/1.77, 0+100/4.72);
+        bezierVertex(0+100/1.92, 0+100/7.58, 0+100/3.76, 0+100/4.66, 0+100/3.27, 0+100/4.5);
+        bezierVertex(0+100/2.95, 0+100/4.59, 0+100/2.31, 0+100/2.57, 0+100/1.77, 0+100/4.72);
+        endShape();
+        beginShape();
+        vertex(0+100/1.72, 0+100/3.27);
+        bezierVertex(0+100/1.51, 0+100/4.62, 0+100/1.07, 0+100/2.48, 0+100/1.23, 0+100/2.5);
+        bezierVertex(0+100/1.28, 0+100/2.41, 0+100/1.55, 0+100/2.19, 0+100/1.72, 0+100/3.27);
+        endShape();
+        beginShape();
+        vertex(0+100/1.97, 0+100/7.20);
+        bezierVertex(0+100/1.81, 0+100/27, 0+100/1.57, 0+100/10, 0+100/1.28, 0+100/7.6);
+        bezierVertex(0+100/1.28, 0+100/4.86, 0+100/2.13, 0+100/6.03, 0+100/1.97, 0+100/7.20);
+        endShape();
+        beginShape();
+        vertex(0+100/1.93, 0+100/2.06);
+        bezierVertex(0+100/2.39, 0+100/2.63, 0+100/3.61, 0+100/2.19, 0+100/4.64, 0+100/1.9);
+        bezierVertex(0+100/2.95, 0+100/1.61, 0+100/2.31, 0+100/2.34, 0+100/1.94, 0+100/2.06);
+        endShape();
+        noStroke();
+        fill(173, 173, 173);
+        quad(0+100/15, 0+100/1.6, 0+100/1.06, 0+100/1.6, 0+100/1.268, 0+100, 0+100/4.52, 0+100);
+        fill(153, 153, 153);
+        rect(0, 0+100/1.8, 100, 100/15, 100/7);
+        
+        return get (0, 0, 100, 100);
+    },
+    'block': function(){
+        noStroke();
+        fill(135, 112, 74);
+        rect(0, 0, 100, 100);
+        noFill();
+        stroke(115, 79, 44);
+        strokeWeight(100/10);
+        bezier(0-100/2.2+100/2, 0-100/5+100/2, 0-100/4+100/2, 0+100/2, 0+100/6+100/2, 0-100/6+100/2, 0+100/2.2+100/2, 0-100/5+100/2);
+        bezier(0-100/2.2+100/2, 0+100/5+100/2, 0-100/-5+100/2, 0+100/7+100/2, 0+100/50+100/2, 0+100/89+100/2, 0+100/2.2+100/2, 0+100/5+100/2);
+        noStroke();
+        fill(115, 79, 44);
+        pushMatrix();
+        translate(0+100/4+100/2, 0+100/6+100/2);
+        rotate(5);
+        ellipse(0, 0, 100/2.9, 100/7);
+        fill(135, 112, 74);
+        ellipse(0, 0, 100/4.5, 100/9);
+        popMatrix();
+        pushMatrix();
+        translate(0-100/4+100/2, 0-100/8+100/2);
+        rotate(-5);
+        fill(115, 79, 44);
+        ellipse(0, 0, 100/2.9, 100/7);
+        fill(135, 112, 74);
+        ellipse(0, 0, 100/4.5, 100/9);
+        popMatrix();
+        
+        return get(0, 0, 100, 100);
+    },
+    'player': function(){
+        noStroke();
+        fill(240, 204, 147);
+        (rect)(0, 0, 100, 100, 100/5, 100/5, 0, 0);
+        fill(255, 255, 255);
+        rect(0, 0+(100/2.2), 100, 100/1.8);
+        fill(20, 20, 20);
+        quad(0-(100/6.5)+100/2, 0-100/18+100/2, 0+(100/6.5)+100/2, 0-100/18+100/2, 0+(100/10)+100/2, 0+(100/15)+100/2, 0-(100/10)+100/2, 0+(100/15)+100/2);
+        quad(0+100/10+100/2, 0+100/15+100/2, 0-100/10+100/2, 0+100/15+100/2, 0-100/7+100/2, 0+100/2+100/2, 0+100/7+100/2, 0+100/2+100/2);
+        fill(40);
+        quad(0, 0-100/18+100/2, 0-100/3.5+100/2, 0-100/18+100/2, 0+100/5+100/2, 0+100/2+100/2, 0-100/2+100/2, 0+100/2+100/2);
+        fill(50);
+        quad(0+100/2+100/2, 0-100/18+100/2, 0+100/3.5+100/2, 0-100/18+100/2, 0-100/5+100/2, 0+100/2+100/2, 0+100/2+100/2, 0+100/2+100/2);
+        fill(10);
+        beginShape();
+        vertex(0-100/2+100/2, 0-100/18+100/2);
+        vertex(0-100/2+100/2, 0+100/2+100/2);
+        vertex(0-100/6+100/2, 0+100/2+100/2);
+        vertex(0-100/7+100/2, 0+100/3.2+100/2);
+        vertex(0-100/3+100/2, 0-100/18+100/2);
+        endShape();
+        beginShape();
+        vertex(0+100/2+100/2, 0-100/18+100/2);
+        vertex(0+100/2+100/2, 0+100/2+100/2);
+        vertex(0+100/6+100/2, 0+100/2+100/2);
+        vertex(0+100/7+100/2, 0+100/3.2+100/2);
+        vertex(0+100/3+100/2, 0-100/18+100/2);
+        endShape();
+        fill(255);
+        ellipse(0-100/5.8+100/2, 0-100/4+100/2, 100/7, 100/5);
+        ellipse(0+100/5.8+100/2, 0-100/4+100/2, 100/7, 100/5);
+        fill(0);
+        ellipse(0-100/5.8+100/2, 0-100/4+100/2, 100/10, 100/10);
+        ellipse(0+100/5.8+100/2, 0-100/4+100/2, 100/10, 100/10);
+        
+        return get(0, 0, 100, 100);
+    },
+    'enemy': function(){
+        noStroke();
+        fill(0);
+        (rect)(0, 0, 100, 100, 100/5, 100/5, 0, 0);
+        fill(255, 255, 255);
+        rect(0, 0-100/3.64+(100/4.5)+100/2, 100, 100/1.8);
+        fill(20, 20, 20);
+        ellipse(0+100/2, 0+100/40+100/2, 100/15, 100/15);
+        ellipse(0+100/2, 0+100/7+100/2, 100/15, 100/15);
+        ellipse(0+100/2, 0+100/4+100/2, 100/15, 100/15);
+        fill(40);
+        quad(0-100/2+100/2, 0-100/18+100/2, 0-100/3.5+100/2, 0-100/18+100/2, 0+100/5+100/2, 0+100/2+100/2, 0-100/2+100/2, 0+100/2+100/2);
+        fill(50);
+        quad(0+100/2+100/2, 0-100/18+100/2, 0+100/3.5+100/2, 0-100/18+100/2, 0-100/5+100/2, 0+100/2+100/2, 0+100/2+100/2, 0+100/2+100/2);
+        fill(30);
+        beginShape();
+        vertex(0-100/2+100/2, 0-100/18+100/2);
+        vertex(0-100/2+100/2, 0+100/2+100/2);
+        vertex(0-100/6+100/2, 0+100/2+100/2);
+        vertex(0-100/7+100/2, 0+100/3.2+100/2);
+        vertex(0-100/3+100/2, 0-100/18+100/2);
+        endShape();
+        beginShape();
+        vertex(0+100/2+100/2, 0-100/18+100/2);
+        vertex(0+100/2+100/2, 0+100/2+100/2);
+        vertex(0+100/6+100/2, 0+100/2+100/2);
+        vertex(0+100/7+100/2, 0+100/3.2+100/2);
+        vertex(0+100/3+100/2, 0-100/18+100/2);
+        endShape();
+        fill(255);
+        ellipse(0-100/5.8+100/2, 0-100/4+100/2, 100/7, 100/5);
+        ellipse(0+100/5.8+100/2, 0-100/4+100/2, 100/7, 100/5);
+        fill(0);
+        ellipse(0-100/5.8+100/2, 0-100/4+100/2, 100/10, 100/10);
+        ellipse(0+100/5.8+100/2, 0-100/4+100/2, 100/10, 100/10);
+        strokeWeight(100/10);
+        stroke(3, 3, 3);
+        line(0-100/13+100/2, 0-100/3.4+100/2, 0-100/4+100/2, 0-100/2.7+100/2);
+        line(0+100/13+100/2, 0-100/3.4+100/2, 0+100/4+100/2, 0-100/2.7+100/2);
+        
+        return get(0, 0, 100, 100);
+    },
+    'portal': function(){
+        noStroke();
+        fill(120, 83, 47);
+        rect(0, 0, 100, 100);
+        fill(166, 142, 103);
+        ellipse(0+100/1.3, 0+100/1.6, 100/8, 100/8);
+        strokeWeight(100/25);
+        stroke(196, 196, 196);
+        fill(161, 237, 236);
+        rect(0+100/5, 0+100/8, 100/1.7, 100/3.5);
+
+        return get(0, 0, 100, 100);
+    },
+    'sign': function(){
+        fill(97, 66, 0);
+        noStroke();
+        rect(0, 0, 100, 100);
+        fill(255);
+        rect(10, 10, 80, 80);
+        fill(0);
+        textSize(100/10);
+        textAlign(CENTER, CENTER);
+        text('If you find\nthis, put\n\'CodeHunter\'\nin the T&T', 0+100/2, 0+100/2);
+        
+        return get(0, 0, 100, 100);
+    },
+    'spike': function(){
+        fill(105, 105, 105);
+        noStroke();
+        triangle(0+100/2, 0, 0, 0+100, 0+(100), 0+100);
+        
+        return get(0, 0, 100, 100);
+    },
+    'fake': function(){
+        noStroke();
+        fill(135, 112, 74);
+        rect(0, 0, 100, 100/2);
+        noFill();
+        stroke(115, 79, 44);
+        strokeWeight(100/10);
+        bezier(0-100/2.2+100/2, 0-100/5+100/2, 0-100/4+100/2, 0+100/2, 0+100/6+100/2, 0-100/6+100/2, 0+100/2.2+100/2, 0-100/5+100/2);
+        noStroke();
+        fill(115, 79, 44);
+        pushMatrix();
+        translate(0-100/4+100/2, 0-100/8+100/2);
+        rotate(-5);
+        fill(135, 112, 74);
+        ellipse(0, 0, 100/4.5, 100/9);
+        popMatrix();
+        
+        return get(0, 0, 100, 100);
+    }
+};//Cache all images to create less lag
+var imageKeys = Object.keys(images);
+for(var i = 0; i < imageKeys.length; i++){
+    var Key = imageKeys[i];
+    var img = images[Key];
+        
+    if(typeof img === 'function'){
+        background(0, 0, 0, 0);
+        images[Key] = img();
+    }
+}
+
+//Transition {
+var trans = {
+    active: false,
+    out: false,
+    w: 600,
+    next: ''
+};
+var runTransition = function(){
+    noStroke();
+    fill(179, 164, 125);
+    if(trans.active){
+        if(!trans.out){
+            trans.w/=1.2;
+            rect(0, 0, 600-trans.w, 600-trans.w);
+            if(trans.w<=0.01){
+                page = trans.next;
+                trans.w = 600;
+                trans.out = true;
+            }
+        }
+        if(trans.out){
+            trans.w/=1.1;
+
+            rect(0, 0, trans.w, 600);
+
+
+            if(trans.w<5){
+                trans.active = false;
+                trans.out = false;
+                trans.w = 600;
+            }
+        }
+    }
+    clicked = false;
+    over = false;
+};
+//}
+
+//Buttons {
+var Button = function(x, y, r, size, label, next){
+    this.x = x;
+    this.y = y;
+    this.radius = r;
+    this.size = size;
+    this.label = label;
+    this.next = next;
+    this.transparency = 150;
+    this.startSize = this.size;
+    this.sizeUp = 5;
+};
+Button.prototype.update = function(){
+    if(dist(mouseX, mouseY, this.x, this.y)<=this.radius){
+        over = true;
+    }
+    else{
+        over = false;
+    }
+    if(over){
+        cursor(HAND);
+        this.transparency = 200;
+        if(clicked){
+            trans.active = true;
+            trans.next = this.next;
+            clicked = false;
+        }
+    }
+    else{
+        this.transparency = 150;
+        cursor(ARROW);
+    }
+};
+Button.prototype.display = function(){
+    fill(163, 138, 104, this.transparency);
+    strokeWeight(5);
+    stroke(0);
+    ellipse(this.x, this.y, this.radius*2, this.radius*2);
+    fill(0);
+    textSize(this.size);
+    text(this.label, this.x, this.y);
+};
+var Buttons = {
+    play: new Button(225, 300, 50, 20, 'PLAY', 'playing'),
+    help: new Button(375, 300, 50, 20, 'HELP', 'instructions'),
+    back: new Button(500, 500, 50, 20, 'BACK', 'menu')
+};
+//}
+
+//Hardwood floor for background {
+var Hardwood = function(){
+    this.hardwood = [];
+    for(var i = 0; i <= 700; i+=170){
+    for(var j = 425; j < 600; j+=50){
+        this.hardwood.push({
+            x: i+30,
+            y: j+13,
+            n: random(0, 40),
+            n2: random(0, 29)
+        });
+    }
+    }
+};
+Hardwood.prototype.display = function(){
+for(var i = 0; i < this.hardwood.length; i++){
+    strokeWeight(1.5);
+    stroke(0, 0, 0, 30);
+    fill(noise(this.hardwood[i].n)*40 + 170, 133, 98);
+    rect(this.hardwood[i].x-170/2, this.hardwood[i].y-12.5, 170, 25);
+    fill(0, 0, 0, 30);
+    noStroke();
+    ellipse(this.hardwood[i].x+0, this.hardwood[i].y+0, 59, 2);
+    ellipse(this.hardwood[i].x+35, this.hardwood[i].y+7, 90, 2);
+    ellipse(this.hardwood[i].x-20, this.hardwood[i].y-6, 83, 2);
+    ellipse(this.hardwood[i].x-41, this.hardwood[i].y+9, 60, 2);
+    ellipse(this.hardwood[i].x+51, this.hardwood[i].y-4, 55, 2);
+    ellipse(this.hardwood[i].x-52, this.hardwood[i].y+2, 54, 2);
+    
+    strokeWeight(1.5);
+    stroke(0, 0, 0, 30);
+    fill(noise(this.hardwood[i].n2)*50 + 160, 133, 98);
+    rect(this.hardwood[i].x-85-170/2, this.hardwood[i].y+25-12.5, 170, 25);
+    fill(0, 0, 0, 30);
+    noStroke();
+    ellipse(this.hardwood[i].x-85, this.hardwood[i].y+25, 59, 2);
+    ellipse(this.hardwood[i].x-40, this.hardwood[i].y+32, 90, 2);
+    ellipse(this.hardwood[i].x-105, this.hardwood[i].y+19, 83, 2);
+    ellipse(this.hardwood[i].x-126, this.hardwood[i].y+34, 60, 2);
+    ellipse(this.hardwood[i].x-34, this.hardwood[i].y+21, 55, 2);
+}
+};
+var Hardwoods = new Hardwood();
+//}
+
+//Background on menu and instructions {
+var Background = function(){
+    //Wallpaper{
+    background(255, 244, 209);
+    strokeWeight(1);
+    stroke(0, 0, 0, 20);
+    noFill();
+    for(var i = 0; i <= 600; i+=90){
+    for(var j = 0; j <= 600; j+=90){
+        ellipse(i, j, 5, 5);
+        line(i+10, j+10, i+80, j+80);
+        line(i+10, j-10, i+80, j-80);
+    }
+    }
+    //}
+    //Floor{
+    Hardwoods.display();
+    //}
+    //Clock{
+    fill(0, 0, 0, 60);
+    noStroke();
+    ellipse(160, 166, 95, 95);
+    strokeWeight(9);
+    stroke(135, 107, 62);
+    fill(255, 255, 255);
+    ellipse(155, 161, 86, 86);
+    pushMatrix();
+    translate(155, 161);
+    for(var i = 0; i <= 360; i+=90){
+        rotate(i);
+        strokeWeight(2);
+        stroke(0);
+        line(0, 27, 0, 33);
+    }
+    popMatrix();
+    strokeWeight(4);
+    line(155, 161, 131, 155);
+    line(155, 161, 160, 177);
+    //}
+    //Filing Cabinet{
+    noStroke();
+    fill(0, 0, 0, 50);
+    quad(411, 495, 581, 475, 600, 479, 600, 579);
+    fill(222, 208, 151);
+    rect(486-74, 355-140, 150, 280);
+    fill(235, 218, 171);
+    quad(411, 215, 431, 190, 581, 190, 561, 215);
+    fill(176, 165, 127);
+    quad(561, 215, 581, 190, 581, 475, 561, 495);
+    for(var i = 250; i<=450; i+=66){
+        noFill();
+        strokeWeight(1);
+        stroke(0, 0, 0, 50);
+        rect(486-70, i+11-25.9, 140, 55);
+        fill(191, 191, 191);
+        noStroke();
+        rect(486-10, i-4+2, 20, 4);
+    }
+    //}
+    //Table{
+    noStroke();
+    fill(120, 86, 49);
+    rect(284, 471-60, 10, 120, 10);
+    fill(99, 70, 49);
+    rect(355-5, 410-60, 10, 120, 10);
+    rect(38-5, 410-60, 10, 120, 10);
+    fill(163, 131, 91);
+    quad(33, 336, 366, 336, 300, 405, -33, 405);
+    fill(156, 108, 72);
+    rect(134-333/2, 410-5, 333, 10);
+    fill(125, 101, 66);
+    quad(300, 415, 300, 405, 366, 336, 366, 346);
+    //}
+    //Chair{
+    noStroke();
+    fill(36, 36, 36);
+    quad(150, 560, 150, 550, 60, 510, 60, 520);
+    quad(150, 510, 150, 520, 60, 560, 60, 550);
+    stroke(36);
+    strokeWeight(2);
+    line(148, 560, 148, 562);
+    line(62, 560, 62, 562);
+    line(62, 520, 62, 522);
+    line(148, 520, 148, 522);
+    noStroke();
+    fill(36);
+    ellipse(149, 566, 6, 6);
+    ellipse(150, 526, 6, 6);
+    ellipse(61, 566, 6, 6);
+    ellipse(61, 526, 6, 6);
+    rect(101, 501-30, 8, 60);
+    ellipse(109, 469, 95, 25);
+    strokeWeight(5);
+    noFill();
+    stroke(36);
+    bezier(65, 469, 23, 477, 29, 436, 32, 430);
+    bezier(32, 433, 85, 371, 0, 326, 39, 356);
+    bezier(65, 466, 23, 475, 29, 436, 32, 430);
+    bezier(76, 463, 23, 473, 29, 436, 32, 430);
+    bezier(32, 433, 90, 371, -3, 326, 39, 356);
+    noStroke();
+    fill(36);
+    pushMatrix();
+    translate(59, 384);
+    rotate(-7);
+    ellipse(0, 0, 15, 97);
+    ellipse(-15, 3, 8, 15);
+    popMatrix();
+    //}
+
+};
+//}
+
+//Use for the game {
+var keys = [];
+keyPressed = function(){
+    keys[keyCode] = true;
+};
+keyReleased = function(){
+    keys[keyCode] = false;
+};
+var collide = function(obj1, obj2){
+    return obj1.x<obj2.x+obj2.w&&obj1.x+obj1.w>obj2.x&&
+           obj1.y<obj2.y+obj2.h&&obj1.y+obj1.h>obj2.y;
+};
+//}
+
+//Player {
+var Player = function(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.speed = 2.5;
+    this.accel = 0.25;
+    this.xVel = 0;
+    this.yVel = 0;
+    this.jumpHeight = 8;
+    this.jumping = false;
+    this.grav = 0.32;
+    this.dead = false;
+    this.health = 1;
+    this.hiding = false;
+};
+Player.prototype.update = function(blocks){
+    if(!this.dead){
+        if(keys[RIGHT]){
+            this.xVel+=this.accel;
+        }
+        if(keys[LEFT]){
+            this.xVel-=this.accel;
+        }
+        if(keys[UP]&&!this.jumping){
+            this.yVel-=this.jumpHeight;
+            this.jumping = true;
+        }
+        if(!keys[RIGHT]&&!keys[LEFT]){
+            if(this.xVel>0){
+                this.xVel-=this.accel;
+            }
+            if(this.xVel<0){
+                this.xVel+=this.accel;
+            }
+        }
+        if(Math.abs(this.xVel)>=this.speed){
+            if(this.xVel>0){
+                this.xVel = this.speed;
+            }
+            if(this.xVel<0){
+                this.xVel = -this.speed;
+            }
+        }
+        this.x+=this.xVel;
+        this.applyCollision(blocks, this.xVel, 0);
+        this.jumping = true;
+        this.y+=this.yVel;
+        this.applyCollision(blocks, 0, this.yVel);
+        this.yVel+=this.grav;
+    }
+    if(this.health!==1){
+        this.dead = true;
+        this.hiding = false;
+    }
+};
+Player.prototype.applyCollision = function(obj, velX, velY){
+    for(var i = 0; i < obj.length; i++){
+        if(collide(this, obj[i])){
+            obj[i].trans = 150;
+            if(velY>0){
+                this.jumping = false;
+                this.yVel = 0;
+                this.y = obj[i].y-this.h;
+            }
+            if(velY<0){
+                this.jumping = true;
+                this.yVel = 0;
+                this.y = obj[i].y+obj[i].h;
+            }
+            if(velX < 0){
+                this.xVel = 0;
+                this.x = obj[i].x+obj[i].w;
+            }
+            if(velX > 0){
+                this.xVel = 0;
+                this.x = obj[i].x-this.w;
+            }
+        }
+    }
+};
+Player.prototype.display = function(){
+    /*noStroke();
+    fill(240, 204, 147);
+    (rect)(this.x, this.y, this.w, this.h, this.w/5, this.w/5, 0, 0);
+    fill(255, 255, 255);
+    rect(this.x, this.y+(this.h/2.2), this.w, this.h/1.8);
+    fill(20, 20, 20);
+    quad(this.x-(this.w/6.5)+this.w/2, this.y-this.h/18+this.h/2, this.x+(this.w/6.5)+this.w/2, this.y-this.h/18+this.h/2, this.x+(this.w/10)+this.w/2, this.y+(this.h/15)+this.h/2, this.x-(this.w/10)+this.w/2, this.y+(this.h/15)+this.h/2);
+    quad(this.x+this.w/10+this.w/2, this.y+this.h/15+this.h/2, this.x-this.w/10+this.w/2, this.y+this.h/15+this.h/2, this.x-this.w/7+this.w/2, this.y+this.h/2+this.h/2, this.x+this.w/7+this.w/2, this.y+this.h/2+this.h/2);
+    fill(40);
+    quad(this.x, this.y-this.h/18+this.h/2, this.x-this.w/3.5+this.w/2, this.y-this.h/18+this.h/2, this.x+this.w/5+this.w/2, this.y+this.h/2+this.h/2, this.x-this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    fill(50);
+    quad(this.x+this.w/2+this.w/2, this.y-this.h/18+this.h/2, this.x+this.w/3.5+this.w/2, this.y-this.h/18+this.h/2, this.x-this.w/5+this.w/2, this.y+this.h/2+this.h/2, this.x+this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    fill(10);
+    beginShape();
+    vertex(this.x-this.w/2+this.w/2, this.y-this.h/18+this.h/2);
+    vertex(this.x-this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x-this.w/6+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x-this.w/7+this.w/2, this.y+this.h/3.2+this.h/2);
+    vertex(this.x-this.w/3+this.w/2, this.y-this.h/18+this.h/2);
+    endShape();
+    beginShape();
+    vertex(this.x+this.w/2+this.w/2, this.y-this.h/18+this.h/2);
+    vertex(this.x+this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x+this.w/6+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x+this.w/7+this.w/2, this.y+this.h/3.2+this.h/2);
+    vertex(this.x+this.w/3+this.w/2, this.y-this.h/18+this.h/2);
+    endShape();
+    fill(255);
+    ellipse(this.x-this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/7, this.h/5);
+    ellipse(this.x+this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/7, this.h/5);
+    fill(0);
+    ellipse(this.x-this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/10, this.h/10);
+    ellipse(this.x+this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/10, this.h/10);*/
+    image(images.player, this.x, this.y, this.w, this.h);
+};
+var players = [];
+players.add = function(x, y, w, h){
+    this.push(new Player(x, y, w, h));
+};
+players.apply = function(blocks, plants){
+    for(var i = 0; i < this.length; i++){
+        this[i].update(blocks);
+        this[i].display();
+    }
+};
+//}
+
+//Blocks {
+var Block = function(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+};
+Block.prototype.display = function(){
+    /*noStroke();
+    fill(135, 112, 74);
+    rect(this.x, this.y, this.w, this.h);
+    noFill();
+    stroke(115, 79, 44);
+    strokeWeight(this.h/10);
+    bezier(this.x-this.w/2.2+this.w/2, this.y-this.h/5+this.h/2, this.x-this.w/4+this.w/2, this.y+this.h/2, this.x+this.w/6+this.w/2, this.y-this.h/6+this.h/2, this.x+this.w/2.2+this.w/2, this.y-this.h/5+this.h/2);
+    bezier(this.x-this.w/2.2+this.w/2, this.y+this.h/5+this.h/2, this.x-this.w/-5+this.w/2, this.y+this.h/7+this.h/2, this.x+this.w/50+this.w/2, this.y+this.h/89+this.h/2, this.x+this.w/2.2+this.w/2, this.y+this.h/5+this.h/2);
+    noStroke();
+    fill(115, 79, 44);
+    pushMatrix();
+    translate(this.x+this.w/4+this.w/2, this.y+this.h/6+this.h/2);
+    rotate(5);
+    ellipse(0, 0, this.w/2.9, this.h/7);
+    fill(135, 112, 74);
+    ellipse(0, 0, this.w/4.5, this.h/9);
+    popMatrix();
+    pushMatrix();
+    translate(this.x-this.w/4+this.w/2, this.y-this.h/8+this.h/2);
+    rotate(-5);
+    fill(115, 79, 44);
+    ellipse(0, 0, this.w/2.9, this.h/7);
+    fill(135, 112, 74);
+    ellipse(0, 0, this.w/4.5, this.h/9);
+    popMatrix();*/
+    image(images.block, this.x, this.y, this.w, this.h);
+};
+var blocks = [];
+blocks.add = function(x, y, w, h){
+    this.push(new Block(x, y, w, h));
+};
+blocks.apply = function(){
+    for(var i = 0;  i < this.length; i++){
+        this[i].display();
+    }
+};
+//}
+
+//Fake blocks {
+var Fake = function(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+};
+Fake.prototype.display = function(){
+    image(images.fake, this.x, this.y, this.w, this.h);
+};
+var fakes = [];
+fakes.add = function(x, y, w, h){
+    this.push(new Fake(x, y, w, h));
+};
+fakes.apply = function(){
+    for(var i = 0; i < this.length; i++){
+        this[i].display();
+    }
+};
+//}
+
+//Plants {
+var Plant = function(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+};
+Plant.prototype.update = function(players){
+    for(var i = 0; i < players.length; i++){
+        if(collide(this, players[i])&&!players[i].dead){
+            players[i].hiding = true;
+        }
+        else{
+            players[i].hiding = false;
+        }
+    }
+};
+Plant.prototype.display = function(){
+    /*noFill();
+    stroke(57, 122, 47);
+    strokeWeight(this.w/33.3);
+    bezier(this.x+this.w/2.00, this.y+this.h/1.62, this.x+this.w/2.57, this.y+this.h/3.51, this.x+this.w/1.23, this.y+this.h/2.37, this.x+this.w/2.68, this.y);
+    bezier(this.x+this.w/1.92, this.y+this.h/1.62, this.x+this.w/2.40, this.y+this.h/3.51, this.x+this.w/1.23, this.y+this.h/2.37, this.x+this.w/2.68, this.y);
+    bezier(this.x+this.w/2.11, this.y+this.h/1.62, this.x+this.w/2.66, this.y+this.h/3.51, this.x+this.w/1.23, this.y+this.h/2.37, this.x+this.w/2.68, this.y);
+    noStroke();
+    fill(55, 94, 32);
+    beginShape();
+    vertex(this.x+this.w/1.77, this.y+this.h/4.72);
+    bezierVertex(this.x+this.w/1.92, this.y+this.h/7.58, this.x+this.w/3.76, this.y+this.h/4.66, this.x+this.w/3.27, this.y+this.h/4.5);
+    bezierVertex(this.x+this.w/2.95, this.y+this.w/4.59, this.x+this.w/2.31, this.y+this.w/2.57, this.x+this.w/1.77, this.y+this.h/4.72);
+    endShape();
+    beginShape();
+    vertex(this.x+this.w/1.72, this.y+this.h/3.27);
+    bezierVertex(this.x+this.w/1.51, this.y+this.h/4.62, this.x+this.w/1.07, this.y+this.h/2.48, this.x+this.w/1.23, this.y+this.h/2.5);
+    bezierVertex(this.x+this.w/1.28, this.y+this.w/2.41, this.x+this.w/1.55, this.y+this.w/2.19, this.x+this.w/1.72, this.y+this.h/3.27);
+    endShape();
+    beginShape();
+    vertex(this.x+this.w/1.97, this.y+this.h/7.20);
+    bezierVertex(this.x+this.w/1.81, this.y+this.h/27, this.x+this.w/1.57, this.y+this.h/10, this.x+this.w/1.28, this.y+this.h/7.6);
+    bezierVertex(this.x+this.w/1.28, this.y+this.w/4.86, this.x+this.w/2.13, this.y+this.w/6.03, this.x+this.w/1.97, this.y+this.h/7.20);
+    endShape();
+    beginShape();
+    vertex(this.x+this.w/1.93, this.y+this.h/2.06);
+    bezierVertex(this.x+this.w/2.39, this.y+this.h/2.63, this.x+this.w/3.61, this.y+this.h/2.19, this.x+this.w/4.64, this.y+this.h/1.9);
+    bezierVertex(this.x+this.w/2.95, this.y+this.w/1.61, this.x+this.w/2.31, this.y+this.w/2.34, this.x+this.w/1.94, this.y+this.h/2.06);
+    endShape();
+    noStroke();
+    fill(173, 173, 173);
+    quad(this.x+this.w/15, this.y+this.h/1.6, this.x+this.w/1.06, this.y+this.h/1.6, this.x+this.h/1.268, this.y+this.h, this.x+this.h/4.52, this.y+this.h);
+    fill(153, 153, 153);
+    rect(this.x, this.y+this.h/1.8, this.w, this.h/15, this.w/7);*/
+    image(images.plant, this.x, this.y, this.w, this.h);
+};
+var plants = [];
+plants.add = function(x, y, w, h){
+    this.push(new Plant(x, y, w, h));
+};
+plants.apply = function(){
+    for(var i = 0;  i < this.length; i++){
+        this[i].update(players);
+        this[i].display();
+    }
+};
+//}
+
+//Portal {
+var scTrans = 0;
+var scCol = [0, 0, 0];
+var Portal = function(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.complete = false;
+};
+Portal.prototype.update = function(players){
+    scCol = [196, 181, 137];
+    for(var i = 0; i < players.length; i++){
+        if(collide(this, players[i])&&!this.complete){
+            scTrans+=5;
+        }
+        else if(scTrans > 0&&!this.complete&&!collide(this, players[i])){
+            scTrans-=8;
+        }
+    }
+    if(scTrans >= 255){
+        this.complete = true;
+    }
+};
+Portal.prototype.display = function(){
+    /*noStroke();
+    fill(120, 83, 47);
+    rect(this.x, this.y, this.w, this.h);
+    fill(166, 142, 103);
+    ellipse(this.x+this.w/1.3, this.y+this.h/1.6, this.w/8, this.h/8);
+    strokeWeight(this.h/25);
+    stroke(196, 196, 196);
+    fill(161, 237, 236);
+    rect(this.x+this.w/5, this.y+this.h/8, this.w/1.7, this.h/3.5);*/
+    image(images.portal, this.x, this.y, this.w, this.h);
+};
+var portals = [];
+portals.add = function(x, y, w, h){
+    this.push(new Portal(x, y, w, h));
+};
+portals.apply = function(players){
+    for(var i = 0;  i < this.length; i++){
+        this[i].update(players);
+        this[i].display();
+    }
+};
+//}
+
+//Spikes {
+var sTime = 0;
+var Spike = function(x, y, w, h, type){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.type = type;
+};
+Spike.prototype.update = function(players){
+    for(var i = 0; i < players.length; i++){
+        if(collide(this, players[i])&&!players[i].dead){
+            players[i].dead = true;
+            sTime++;
+        }
+    }
+    if(sTime>0&&sTime<30){
+        scTrans = 100;
+        scCol = [255, 0, 0];
+        sTime = 0;
+    }
+};
+Spike.prototype.display = function(){
+    /*fill(105, 105, 105);
+    noStroke();
+    triangle(this.x+this.w/2, this.y, this.x, this.y+this.h, this.x+(this.w), this.y+this.h);*/
+    if(this.type==='up'){
+        image(images.spike, this.x, this.y, this.w, this.h);
+    }
+    if(this.type==='right'){
+        pushMatrix();
+        translate(this.x+this.w, this.y);
+        rotate(90);
+        image(images.spike, 0, 0, this.w, this.h);
+        popMatrix();
+    }
+    if(this.type==='left'){
+        pushMatrix();
+        translate(this.x, this.y+this.h);
+        rotate(-90);
+        image(images.spike, 0, 0, this.w, this.h);
+        popMatrix();
+    }
+    if(this.type==='down'){
+        pushMatrix();
+        translate(this.x+this.w, this.y+this.h);
+        rotate(180);
+        image(images.spike, 0, 0, this.w, this.h);
+        popMatrix();
+    }
+    
+};
+var spikes = [];
+spikes.add = function(x, y, w, h, type){
+    this.push(new Spike(x, y, w, h, type));
+};
+spikes.apply = function(players){
+    for(var i = 0; i < this.length; i++){
+        this[i].update(players);
+        this[i].display();
+    }
+};
+//}
+
+//Enemies {
+var eTime = 0;
+var Enemy = function(x, y, w, h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.dir = 1;
+    this.velX = 0;
+};
+Enemy.prototype.update = function(players, blocks, spikes){
+    for(var i = 0; i < players.length; i++){
+        if(collide(this, players[i])&&!players[i].dead&&!players[i].hiding){
+            players[i].health = 420;
+            //Find this ^^ and put 'LGND' in the T&T
+            eTime++;
+        }
+    }
+    if(eTime>0&&eTime<30){
+        scTrans = 100;
+        scCol = [255, 0, 0];
+        eTime = 0;
+    }
+    for(var i = 0; i < blocks.length; i++){
+        if(collide(this, blocks[i])){
+            this.velX*=-1;
+            this.dir*=-1;
+        }
+    }
+    for(var i = 0; i < spikes.length; i++){
+        if(collide(this, spikes[i])){
+            this.velX*=-1;
+            this.dir*=-1;
+        }
+    }
+    if(Math.abs(this.velX)>2){
+        if(this.velX>0){
+            this.velX = 2;
+        }
+        if(this.velX<0){
+            this.velX = -2;
+        }
+    }
+    if(this.dir===1){
+        this.velX = 1;
+    }
+    if(this.dir===-1){
+        this.velX = -1;
+    }
+    this.x+=this.velX;
+};
+Enemy.prototype.display = function(){
+    /*noStroke();
+    fill(0);
+    (rect)(this.x, this.y, this.w, this.h, this.w/5, this.w/5, 0, 0);
+    fill(255, 255, 255);
+    rect(this.x, this.y-this.h/3.64+(this.h/4.5)+this.h/2, this.w, this.h/1.8);
+    fill(20, 20, 20);
+    ellipse(this.x+this.w/2, this.y+this.h/40+this.h/2, this.w/15, this.h/15);
+    ellipse(this.x+this.w/2, this.y+this.h/7+this.h/2, this.w/15, this.h/15);
+    ellipse(this.x+this.w/2, this.y+this.h/4+this.h/2, this.w/15, this.h/15);
+    fill(40);
+    quad(this.x-this.w/2+this.w/2, this.y-this.h/18+this.h/2, this.x-this.w/3.5+this.w/2, this.y-this.h/18+this.h/2, this.x+this.w/5+this.w/2, this.y+this.h/2+this.h/2, this.x-this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    fill(50);
+    quad(this.x+this.w/2+this.w/2, this.y-this.h/18+this.h/2, this.x+this.w/3.5+this.w/2, this.y-this.h/18+this.h/2, this.x-this.w/5+this.w/2, this.y+this.h/2+this.h/2, this.x+this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    fill(30);
+    beginShape();
+    vertex(this.x-this.w/2+this.w/2, this.y-this.h/18+this.h/2);
+    vertex(this.x-this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x-this.w/6+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x-this.w/7+this.w/2, this.y+this.h/3.2+this.h/2);
+    vertex(this.x-this.w/3+this.w/2, this.y-this.h/18+this.h/2);
+    endShape();
+    beginShape();
+    vertex(this.x+this.w/2+this.w/2, this.y-this.h/18+this.h/2);
+    vertex(this.x+this.w/2+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x+this.w/6+this.w/2, this.y+this.h/2+this.h/2);
+    vertex(this.x+this.w/7+this.w/2, this.y+this.h/3.2+this.h/2);
+    vertex(this.x+this.w/3+this.w/2, this.y-this.h/18+this.h/2);
+    endShape();
+    fill(255);
+    ellipse(this.x-this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/7, this.h/5);
+    ellipse(this.x+this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/7, this.h/5);
+    fill(0);
+    ellipse(this.x-this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/10, this.h/10);
+    ellipse(this.x+this.w/5.8+this.w/2, this.y-this.h/4+this.h/2, this.w/10, this.h/10);
+    strokeWeight(this.h/10);
+    stroke(3, 3, 3);
+    line(this.x-this.w/13+this.w/2, this.y-this.h/3.4+this.h/2, this.x-this.w/4+this.w/2, this.y-this.h/2.7+this.h/2);
+    line(this.x+this.w/13+this.w/2, this.y-this.h/3.4+this.h/2, this.x+this.w/4+this.w/2, this.y-this.h/2.7+this.h/2);*/
+    image(images.enemy, this.x, this.y, this.w, this.h);
+};
+var enemies = [];
+enemies.add = function(x, y, w, h){
+    this.push(new Enemy(x, y, w, h));
+};
+enemies.apply = function(players, blocks, spikes){
+    for(var i = 0; i < this.length; i++){
+        this[i].update(players, blocks, spikes);
+        this[i].display();
+    }
+};
+//}
+
+//Signs {
+var Sign = function(x, y, w, h, msg){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.msg = msg;
+};
+Sign.prototype.display = function(players){
+    /*fill(97, 66, 0);
+    noStroke();
+    rect(this.x, this.y, this.w, this.h);
+    fill(255);
+    rect(this.x+2.5, this.y+2.5, this.w-5, this.h-5);
+    fill(0);
+    textSize(2.5);
+    textAlign(CENTER, CENTER);
+    text('If you find\nthis, put\n\'CodeHunter\'\nin the T&T', this.x+this.w/2, this.y+this.h/2);*/
+    image(images.sign, this.x, this.y, this.w, this.h);
+    for(var i = 0; i < players.length; i++){
+        if(collide(this, players[i])){
+            fill(0);
+            textSize(25);
+            text(this.msg, 55, -150, 500, 600);
+        }
+    }
+};
+var signs = [];
+signs.Msg = 0;
+signs.mem = signs.Msg;
+signs.add = function(x, y, w, h, msg){
+    this.push(new Sign(x, y, w, h, msg));
+    this.Msg+=1;
+};
+signs.apply = function(players){
+    for(var i = 0; i < this.length; i++){
+        this[i].display(players);
+    }
+};
+//}
+
+var Objects = [players, blocks, portals, signs, spikes, enemies, plants, fakes];
+Objects.remove = function(){
+    for(var i = 0; i < Objects.length; i++){
+    for(var j = 0; j < Objects[i].length; j++){
+        Objects[i].splice(j, Objects[i].length);
+    }
+    }
+};
+
+/**
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '########################'
+            
+            @ - Player
+            # - Block
+            ^, <, >, v - Spike ~ respective directions
+            ? - sign
+            % - Portal
+            _ - Fake block
+            $ - Plant ~ one per level
+            ! - Enemy
+            
+ *///Just a blank level array
+ 
+var Game = function(){
+    this.level = 0;
+    this.levels = [
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#   ^                  #',
+            '#  <#>  # !#  $        #',
+            '#   v   ####  # ___    #',
+            '#@                     #',
+            '#?  ?    ?    ?  ?  ? %#',
+            '########################'
+        ],//Level zero ✓ - Tutorial
+        [
+            '########################',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#@                     #',
+            '#?                    %#',
+            '########################',
+        ],//Level one ✓
+        [
+            '########################',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#@                     #',
+            '#?       #! #         %#',
+            '########################',
+        ],//Level two ✓
+        [
+            '########################',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#@?                    #',
+            '# #       !    $   #  %#',
+            '########################',
+        ],//Level three ✓
+        [
+            '########################',    
+            '#@ ?     #             #',    
+            '####     #             #',    
+            '#        #             #',    
+            '#        #             #',    
+            '#      ###             #',    
+            '#        #            %#',
+            '#        #           ###',
+            '#   #    #       #     #',
+            '#                      #',
+            '#                    # #',
+            '#                      #',
+            '#             #! $#    #',
+            '#       ###########    #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#^^^^^^^#   !   #^^^^^^#',
+            '########################'
+        ],//Level four ✓
+        [
+            '########################',    
+            '#%                     #',    
+            '####     $   !   #     #',    
+            '#  ################    #',    
+            '#                      #',    
+            '#                     ##',    
+            '#                      #',
+            '#                      #',
+            '#                 #    #',
+            '#@                     #',
+            '####                   #',
+            '#                     ##',
+            '#                      #',
+            '#                      #',
+            '#      #        !  #^^^#',
+            '#      #################',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level five ✓
+        [
+            '########################',    
+            '#@                     #',    
+            '##                     #',    
+            '#                      #',    
+            '#   $!!!!  #           #',    
+            '############           #',    
+            '#                      #',
+            '#                 ?    #',
+            '#               ########',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#####____####___##     #',
+            '#   #    #  #   #      #',
+            '#   #    #  #   #      #',
+            '#   #    #  #   #      #',
+            '#   #^^^^#  #^^^#      #',
+            '#   ######  #####      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#%  !     !     !      #',
+            '########################'
+        ],//Level six ✓
+        [
+            '########################',    
+            '#!!!!!#                #',    
+            '#######               %#',    
+            '#                 ######',    
+            '#         #########    #',    
+            '#                      #',    
+            '#  !      #            #',
+            '#############          #',
+            '#                      #',
+            '#@             ###     #',
+            '###                    #',
+            '#       #^^^^^^#    ####',
+            '#       ########       #',
+            '#         #    ###     #',
+            '#         #            #',
+            '######    #         ####',
+            '#         #        ##  #',
+            '#         #            #',
+            '#      ####     #      #',
+            '#                      #',
+            '#                      #',
+            '#                   #  #',
+            '#      !  #  ! $  !    #',
+            '########################'
+        ],//Level seven ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#           ####__#### #',    
+            '#     ####           # #',    
+            '#  !     !   !       ! #',    
+            '#                    # #',
+            '###                  # #',
+            '#     ##__#          #  !#',
+            '#           _        # #',
+            '#!                   # #',
+            '#    _     !   ##    #%#',
+            '#                    ###',
+            '#          #     _     #',
+            '#    #                 #',
+            '#                      #',
+            '#      _     #         #',
+            '#            #         #',
+            '#   _       ##         #',
+            '#       #              #',
+            '#   !                  #',
+            '#   #                  #',
+            '#@ ?#^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level eight ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#              ?       #',    
+            '#          #####       #',    
+            '#         ##   #       #',    
+            '#              #       #',
+            '#             !#       #',
+            '#   ###       ##       #',
+            '#         ##__#      ! #',
+            '#             ###      #',
+            '#               #      #',
+            '#      #        #      #',
+            '###########    ##      #',
+            '#             ##!      #',
+            '#              ##      #',
+            '#    #  $   !   #      #',
+            '#    ######____##      #',
+            '#@             #    !  #',
+            '###            ##      #',
+            '#               #      #',
+            '#               #      #',
+            '#^^^^^^^^^^^^^^^# % ^^^#',
+            '########################'
+        ],//Level nine ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',    
+            '#         ####         #',    
+            '#                      #',    
+            '#     #          #     #',
+            '#%#!  #                #',
+            '#######                #',
+            '#          ####_____   #',
+            '#                      #',
+            '#                      #',
+            '#  ####                #',
+            '#                      #',
+            '#                      #',
+            '#  ##_____######     ^##',
+            '#           #        ###',
+            '#           #       ####',
+            '#    #^^^^^^#      #####',
+            '#    ########    ^######',
+            '#                #######',
+            '#               ########',
+            '#@    ?        #########',
+            '########################'
+        ],//Level ten ✓
+        [
+            '########################',    
+            '#%     $    !          #',    
+            '###################    #',    
+            '#                 ###  #',    
+            '#               !      #',    
+            '#           ############',    
+            '#                      #',
+            '#       !              #',
+            '#    ######            #',
+            '#                      #',
+            '#              !       #',
+            '#           ############',
+            '#                      #',
+            '# !                    #',
+            '#    ######            #',
+            '#                      #',
+            '#          !           #',
+            '#           ############',
+            '#                      #',
+            '#       !              #',
+            '#    ######            #',
+            '#                      #',
+            '#@           !         #',
+            '########################'
+        ],//Level eleven ✓
+        [
+            '########################',    
+            '#!!!#      ##          #',    
+            '#!!!#      ##          #',    
+            '#####      ##          #',    
+            '#          ##          #',    
+            '#          ##          #',    
+            '#@         ##          #',
+            '###        ##          #',
+            '#       ## ##          #',
+            '#          ##          #',
+            '#          ##         %#',
+            '#          ##         ##',
+            '#  #       ##      ^^  #',
+            '#          ##   #####  #',
+            '#                      #',
+            '#          ?$     !    #',
+            '#        __##          #',
+            '###        ##          #',
+            '#       #__##          #',
+            '#___       ##          #',
+            '#          ##          #',
+            '#          ##          #',
+            '#^^^^^^^^^^##^^^^^^^^^^#',
+            '########################'
+        ],//Level twelve ✓
+        [
+            '########################',    
+            '#           #          #',    
+            '#      !    #      !   #',    
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',
+            '#   #   ! #            #',
+            '#                      #',
+            '#@  ?                ! #',
+            '#####                  #',
+            '#                      #',
+            '#                      #',
+            '#                   ^^^#',
+            '#    ^^^^ ###       ####',
+            '#    ####              #',
+            '#                      #',
+            '#             ^^^      #',
+            '#             ###      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#^^^^^^^^^^^^^^^^^^   ?#',
+            '####################  ##',
+            '                    # ##',
+            '                    #%##',
+            '                     #  '
+        ],//Level thirteen ✓
+        [
+            '#                #     #',    
+            '#    #####             #',    
+            '#                      #',    
+            '#                      #',    
+            '#                   ####',    
+            '#                 ^^   #',    
+            '#            #######   #',
+            '#                      #',
+            '#  #####               #',
+            '#                      #',
+            '#     ___              #',
+            '#            #####     #',
+            '#                      #',
+            '#       ##        !    #',
+            '#$                     #',
+            '####          ^        #',
+            '#             ####     #',
+            '#                      #',
+            '#      #               #',
+            '#   !        !      !  #',
+            '########################',
+            '#                      #',
+            '#@      ?               %#',
+            '##########################'
+        ],//Level fourteen ✓
+        [
+            '#      ##         ^^^^^#',    
+            '#            ##   ######',    
+            '#  !                   #',    
+            '#  ####                #',    
+            '#               ____   #',    
+            '#                      #',    
+            '#       ####           #',
+            '#                      #',
+            '#          !          ##',
+            '#####                  #',
+            '#            #####     #',
+            '#                      #',
+            '#                      #',
+            '#      !       #!      #',
+            '#              ######^^#',
+            '#                   ####',
+            '#         !            #',
+            '#        #####         #',
+            '#                      #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################',
+            '#                      #',
+            '#@       ?               %#',
+            '##########################'
+        ],//Level fifteen ✓
+        [
+            '########################',    
+            '#    !                 #',    
+            '#                      #',    
+            '#?         #>          #',    
+            '###        v           #',    
+            '#vv   #>    ^    #     #',    
+            '#          <#>   v     #',
+            '#                     %#',
+            '# <#>                ###',
+            '#^ v            <##  v #',
+            '##>              vv   <#',
+            '#v    <###   !        <#',
+            '#           <#>       <#',
+            '#                     <#',
+            '#^        !           <#',
+            '##>             <#>   <#',
+            '#v      ^        v    <#',
+            '#     # #             <#',
+            '#     v    <##>       <#',
+            '#       ^   vv        <#',
+            '##>    <#>            <#',
+            '#       v    !        <#',
+            '#@  ?      ^^^^^^^^^^^ #',
+            '########################'
+        ],//Level sixteen ✓
+        [
+            '########################',    
+            '#                     <#',    
+            '#                     <#',    
+            '#@                  ! <#',    
+            '##         ###        <#',    
+            '#  ^                 !<#',    
+            '#  ###           !    <#',
+            '#                 ######',
+            '#    !                 #',
+            '#                      #',
+            '#                     %#',
+            '#   ##                ##',
+            '#    !      $  __  !   #',
+            '#         <##     ##>  #',
+            '#                 vv   #',
+            '#    ##     !          #',
+            '#    vv                #',
+            '#                      #',
+            '#              ?       #',
+            '#    ################  #',
+            '#    vvvvvvvvvvvvvvvv  #',
+            '#                      #',
+            '# !       !         !  #',
+            '########################'
+        ],//Level seventeen ✓
+        [
+            '########################',    
+            '#              #       #',    
+            '#    !         #      %#',    
+            '#              #!     ##',    
+            '#              #      <#',    
+            '##    #        #     ###',    
+            '#     #      ! #       #',
+            '#     #        ###     #',
+            '#    ##        # !     #',
+            '#     #        #       #',
+            '#     #    !   #     ###',
+            '##    #       ##       #',
+            '#     #        ###     #',
+            '#     #  !     #       #',
+            '#    ##        #!     $#',
+            '#     #        #     ###',
+            '#     #        #       #',
+            '##    ##      !###     #',
+            '#     #        #       #',
+            '#     #        #       #',
+            '#    ##    !   #     ###',
+            '#     #        #   !   #',
+            '#  ^^^#^^^^^^  @  ^^^^^#',
+            '########################'
+        ],//Level eighteen ✓
+        [
+            '########################',    
+            '#vvvvvvvvvvv           #',    
+            '#                      #',    
+            '#                      #',    
+            '#  !                   #',    
+            '#                      #',    
+            '#          #___##      #',
+            '#                      #',
+            '#     #                #',
+            '#            !        <#',
+            '##     ___             #',
+            '#                      #',
+            '#@    ?    ^       ^  %#',
+            '#######   <#>  !  <#><##',
+            '#vvvvvv   <#########>  #',
+            '#          vvvvvvvvv   #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#    !                 #',
+            '#                      #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level nineteen ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                !     #',    
+            '#                      #',    
+            '#                   #> #',    
+            '#    !   #>   #    ##> #',    
+            '#     ^       v     #> #',
+            '#   ###>         !  #> #',
+            '#     v             #  #',
+            '#       <#>         # %#',
+            '###          ###>   ####',
+            '#            vvv       #',
+            '#    ####              #',
+            '#    vvvv              #',
+            '#  !           $       #',
+            '###         ######     #',
+            '#           #          #',
+            '#          ##          #',
+            '#  !        #        ###',
+            '#           #          #',
+            '#     ##    #     !    #',
+            '#           #     #    #',
+            '#@? ^^^^^^^^#  ^^^#^^^^#',
+            '#############  #########',
+            '            #  #        ',
+            '       #     ?!#        ',
+            '            ####        '
+        ],//Level twenty ✓
+        [
+            '########################',    
+            '#                    <##',    
+            '#                     v#',    
+            '#    !                 #',    
+            '#                      #',    
+            '#          <###        #',    
+            '#           vvv        #',
+            '#          !  !        #',
+            '#     ___              #',
+            '#                  <#> #',
+            '#        !             #',
+            '#              ####    #',
+            '#              vvvv    #',
+            '###>                   #',
+            '#            !         #',
+            '#                      #',
+            '#    #######           #',
+            '#    vvvvvvv           #',
+            '#                      #',
+            '#                   <###',
+            '#     !                #',
+            '#@                     #',
+            '#?       !     ^^     %#',
+            '########################'
+        ],//Level twenty-one ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#    !                 #',    
+            '#                      #',    
+            '#    !     ^$     !    #',    
+            '#         ###          #',    
+            '#^^                    #',
+            '######>                #',
+            '#          !           #',
+            '#         #####        #',
+            '#             #        #',
+            '#######       #   !    #',
+            '#             #        #',
+            '#             #  !     #',
+            '#         #####        #',
+            '#     ?   #            #',
+            '#@   !#> <#    !       #',
+            '#######> <#            #',
+            '#vvvvvv           __   #',
+            '#      !               #',
+            '#   !          !!      #',
+            '#                      #',
+            '#!         !   !    ! %#',
+            '########################'
+        ],//Level twenty-two ✓
+        [
+            '########################',    
+            '#@ <#    !             #',    
+            '## ##                 %#',    
+            '#   #            #######',    
+            '#   # !                #',    
+            '# ###           ^      #',    
+            '#             ###      #',
+            '#                      #',
+            '#           #          #',
+            '#     !     #          #',
+            '#           ##         #',
+            '#           ##  !   <# #',
+            '#^          ##         #',
+            '####_____#######       #',
+            '#                     ##',
+            '#                    ###',
+            '#            !         #',
+            '#    ###        ##     #',
+            '#    vvv               #',
+            '#          <#>         #',
+            '#         ! v   !      #',
+            '#                      #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level twenty-three ✓
+        [
+            '########################',    
+            '#@                     #',    
+            '#?                     #',    
+            '###                    #',    
+            '#  ##       #          #',    
+            '#    #      !          #',    
+            '#     #            <####',
+            '#                      #',
+            '#           #          #',
+            '#           !          #',
+            '####>                  #',
+            '#                      #',
+            '#           #          #',
+            '#           !          #',
+            '#                  <####',
+            '#                   vvv#',
+            '#           #         <#',
+            '#           !         <#',
+            '#                     %#',
+            '####>            <######',
+            '#           #          #',
+            '#           !          #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level twenty-four ✓
+        [
+            '########################',    
+            '#                     %#',    
+            '#                  #####',    
+            '#             ######vvv#',    
+            '#    !     #           #',    
+            '#       ####           #',    
+            '#    _###     ^^^^^^^  #',
+            '#             #######  #',
+            '# !       @  !vvvvvvv  #',
+            '###      <#           !#',
+            '#         v            #',
+            '#!                 !  !#',
+            '#  ###          ####   #',
+            '#    ##                #',
+            '#   !                  #',
+            '#              !       #',
+            '#       #####          #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level twenty-five ✓
+        [
+            '########################',    
+            '#          %           #',    
+            '#    !    ###          #',    
+            '#      #### ####       #',    
+            '#    #         ! #     #',    
+            '#    v           v     #',    
+            '##                    ##',
+            '#         !            #',
+            '#                      #',
+            '###  !     ^         ###',
+            '#         <#>          #',
+            '#     <#>  v  <#>      #',
+            '#     !                #',
+            '#                      #',
+            '#  ##             ##   #',
+            '#   ###         ###    #',
+            '#                      #',
+            '#    !     #     !     #',
+            '#          v           #',
+            '#                      #',
+            '#      #       #       #',
+            '#                      #',
+            '#!         @          !#',
+            '########################'
+        ],//Level twenty-six ✓
+        [
+            '########################',    
+            '#   vv         vv     @#',    
+            '#             !        #',    
+            '#        #             #',    
+            '#     #  v             #',    
+            '#                      #',    
+            '#  #         #         #',
+            '#% # !                 #',
+            '####     #             #',
+            '#           !          #',
+            '#      !               #',
+            '#      #               #',
+            '#                      #',
+            '#  #                  <#',
+            '#>                    <#',
+            '#>     #              <#',
+            '#>                    <#',
+            '#>                    <#',
+            '#> !####              <#',
+            '#   vvvv              <#',
+            '#        <###   ^      #',
+            '#              ##      #',
+            '#^^^^^^^^^^^^^^## !  $ #',
+            '########################'
+        ],//Level twenty-seven ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#        <#            #',    
+            '#   ?  ########        #',    
+            '#   #         #^^      #',    
+            '#   #^^       ###  $!  #',
+            '#@  ###            #####',
+            '##       !         vvvv#',
+            '#               #      #',
+            '#       ###   ! #      #',
+            '#^^^^   vvv  ####      #',
+            '#####>            ^^^^^#',
+            '# v #>           <######',
+            '#> <# ^^^        <#    #',
+            '#> <#####>   !   <#    #',
+            '#>  vvvvv        <#    #',
+            '#>       !       <#    #',
+            '#>                     #',
+            '#>    !                #',
+            '#>       !       !     #',
+            '#>                     #',
+            '# ^^^^^^^^^^^    ^^^   #',
+            '####################   #',
+            '                   #   #',
+            '                   # % #',
+            '                   #####'
+        ],//Level twenty-eight ✓
+        [
+            '#   ####   vvv   ^^    #',    
+            '#     vv         ##    #',    
+            '#                !     #',    
+            '###                    #',    
+            '#  ^            ###>   #',    
+            '# <#>        !         #',    
+            '#  v                   #',
+            '#      ####         <###',
+            '#                      #',
+            '#           !          #',
+            '#                      #',
+            '# !                ## !#',
+            '#                      #',
+            '#  ! !    ####         #',
+            '#                      #',
+            '#^^^^^^^^       !      #',
+            '########################',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#@  ?    ^^       ^       %#',
+            '###########################'
+        ],//Level twenty-nine ✓
+        [
+            '#  v       v      !    #',    
+            '#      !        ^      #',    
+            '#               #>     #',    
+            '#    ___               #',    
+            '#                      #',    
+            '#          !           #',    
+            '####           ___     #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#              !       #',
+            '#     <####>           #',
+            '#      vvvv            #',
+            '#   #           ###    #',
+            '#                      #',
+            '#   $ !^^^^^^    !     #',
+            '########################',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#      ^               #',
+            '#@?  ? #     !    ^^      %#',
+            '############################'
+        ],//Level thirty ✓
+        [
+            '########################', 
+            '#                 ?   @#', 
+            '# ######################', 
+            '#                      #', 
+            '#                      #', 
+            '#                      #', 
+            '###^^#^#!!!##^^#!!!##^ #', 
+            '###################### #', 
+            '#                      #', 
+            '#                      #', 
+            '#         ##          ##', 
+            '# ^ #__#      # ^   ^^##',
+            '# #^#^^#^^^^^^#^########',
+            '# ###############      #',
+            '#                      #',
+            '##                     #',
+            '#                      #',
+            '#^^!  ! $  !  ! #?     #',
+            '################## ^^^ #',
+            '#vv   v   v   v    ### #',
+            '#                      #',
+            '#                     ##',
+            '#%  ^   ^   ^  #^^^#^^##',
+            '########################'
+        ],//Level thirty-one ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#               !      #',    
+            '#        #  <#  ########',    
+            '#   #       <#      vvv#',    
+            '#     !     <#         #',
+            '#           <####    !%#',
+            '#       #    vvv########',
+            '#                    ! #',
+            '#                      #',
+            '#  <###>               #',
+            '#   vvv    ! #####     #',
+            '#        <####         #',
+            '#         vvvv        ##',
+            '#                      #',
+            '#                      #',
+            '#           !     <#####',
+            '#         <###>    vvvv#',
+            '#          vvv         #',
+            '#   <##>               #',
+            '#    vv                #',
+            '#       !         !$  @#',
+            '########################'
+        ],//Level thirty-two ✓
+        [
+            '########################',    
+            '#@ ?       vvvvvvvvvvv #',    
+            '####            ^     <#',    
+            '#####           #     <#',    
+            '########        #     <#',    
+            '#####>!      ####     <#',    
+            '#####>  ^^^           <#',
+            '#####>  ###         ! <#',
+            '#####>    #           <#',
+            '#####>!   #           <#',
+            '#####>    #  $ !#     <#',
+            '#####>    #######    !<#',
+            '#####>                <#',
+            '#####>!            #####',
+            '#####>                <#',
+            '#####>               !<#',
+            '#####>                <#',
+            '#####>!               <#',
+            '#####>                <#',
+            '#####>               !<#',
+            '#####          ####   <#',
+            '##### !               <#',
+            '#%     ^^^   ^^^^^^^^^ #',
+            '########################'
+        ],//Level thirty-three ✓
+        [
+            '########################',    
+            '#      vvvvvvvvvvvvvvv #',    
+            '#!                    <#',    
+            '#                     <#',    
+            '#@                    <#',    
+            '##         ?          <#',    
+            '#> !    ########    ! <#',
+            '#>      vvvvvvvv      <#',
+            '#>       !            <#',
+            '#> ###            ### <#',
+            '#> ###            ### <#',
+            '#> vvv            vvv <#',
+            '#>                    <#',
+            '#>        !  $        <#',
+            '#>      <######>      <#',
+            '#>       vvvvvv       <#',
+            '#>                    <#',
+            '#>                  ! <#',
+            '#                      #',
+            '#        !             #',
+            '#             !        #',
+            '#                      #',
+            '#  ^^  ^^  ^^  ^^  ^^  #',
+            '#  ##  ##  ##  ##  ##  #',
+            '#  ##  ##  ##  ##  ##  #',
+            '#^^##^^## ! #^^## %##^^#',
+            '########################'
+        ],//Level thirty-four ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',    
+            '#                      #',    
+            '#          !           #',    
+            '#                     %#',
+            '#        #######   ^^^##',
+            '#!!!!!!   !!!!!#########',
+            '#              vvvvvvvv#',
+            '#  ! $##>          !   #',
+            '#   ####>              #',
+            '#   vvvv               #',
+            '#                 !    #',
+            '###                    #',
+            '#vv                    #',
+            '#       !              #',
+            '#  ######              #',
+            '#  vvvvvv              #',
+            '#           ##### !    #',
+            '#           vvvvv    # #',
+            '#                    # #',
+            '#!!!!!!!!!!!!!!!!!!!!#@#',
+            '########################'
+        ],//Level thirty-five ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#      !              %#',    
+            '#                    ###',    
+            '#    ###>           ## #',    
+            '#    vvv               #',
+            '#       !   <####>     #',
+            '## !         vvvv      #',
+            '#                      #',
+            '# !                    #',
+            '#   #         !        #',
+            '#   #  ##              #',
+            '#   #   !              #',
+            '#@  #^^^^^^^#          #',
+            '##  #########          #',
+            '#                   !  #',
+            '#           ##         #',
+            '#      !   $           #',
+            '# <#> <#> <#>          #',
+            '#  v   v   v           #',
+            '#           !          #',
+            '#^^^^^^^^^^^^^^^^^^^^^^#',
+            '########################'
+        ],//Level thirty-six ✓
+        [
+            '########################',    
+            '#                      #',    
+            '#                      #',    
+            '#   ## <#><#><#><#     #',    
+            '##      v  v  v  v     #',    
+            '#v                     #',    
+            '#                #!    #',
+            '###              #     #',
+            '#vv              #     #',
+            '#       #####    #     #',
+            '#       vvvvv    #     #',
+            '#                #!    #',
+            '#  ###>          #   ! #',
+            '#  vv#>                #',
+            '#    #>       ^   ^    #',
+            '##   #>      <#^^^#>   #',
+            '#v   #>      <#####>   #',
+            '#    #>       vvvvv    #',
+            '#   ##>                #',
+            '#   v#>                #',
+            '#@  ^# ^^^^^^^^^^^^^   #',
+            '###################### #',
+            '#%       $      !      #',
+            '########################'
+        ],//Level thirty-seven ✓
+        [
+            '########################', 
+            '#@     #        vvvvvvv#', 
+            '###    #               #', 
+            '#      #   ##__    ### #', 
+            '#      !    #      vvv #', 
+            '###    ##   #          #', 
+            '#      !    #      #####',
+            '#           #          #',
+            '###        ##          #',
+            '#           ##         #',
+            '#^^         #          #',
+            '###    ##__       <#!  #',
+            '#                  v   #',
+            '#^^^^^^^^^^^^^^^^^^^   #',
+            '####################   #',
+            '#             vvv      #',
+            '#   #      !           #',
+            '#   ####################',
+            '#                      #',
+            '#        !         #   #',
+            '####################   #',
+            '#    vvv               #',
+            '#% !    $    !         #',
+            '########################'
+        ],//Level thirty-eight ✓
+        [
+            '########################',    
+            '#                     @#',    
+            '#                     ##',
+            '#!     !       !       #',
+            '# ##################__##',    
+            '#                 <#   #',    
+            '#                 <#   #',    
+            '##!       !$     ! #   #',    
+            '####^^#^#^^#^#^^## #   #',
+            '################## #   #',
+            '#               #  #   #',
+            '# ?     ^     #    #   #',
+            '# #    <#^   <####_#   #',
+            '# #   ####^        #   #',
+            '# ##     ##       ^#^^ #',
+            '# #        #      #### #',
+            '# #   #     #^     #   #',
+            '# ###>       ###   #   #',
+            '# #   <###        ##   #',
+            '# #  ?      ## ##  #   #',
+            '# #  #             #   #',
+            '# #                #   #',
+            '#%#  !!   !   !   !  ^ #',
+            '########################'
+        ],//Level thirty-nine ✓
+        [
+            '########################',    
+            '#@?               !    #',    
+            '###     !  $    !   !  #',    
+            '#vv <#><#><#><#><#><#  #',    
+            '#   !         !        #',    
+            '#      !               #',    
+            '#                      #',
+            '#           !        ^##',
+            '#     !             ####',
+            '#  <#>   !        ######',
+            '#   v             vvvvv#',
+            '#      <##>    !       #',
+            '#       ##             #',
+            '#   ^^^^##^^^^^#^^^^^^^#',
+            '#!  ####################',
+            '#                   !  #',
+            '#    !                 #',
+            '#       !      !  ###> #',
+            '#         <#####       #',
+            '#    ###>  vvvvv!      #',
+            '#     vv      !        #',
+            '### !                  #',
+            '###^^^^^^^^^^^^^^^^^^^%#',
+            '########################'
+        ],//Level fourty ✓
+        [
+            '########################',    
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#                      #',
+            '#@     ?        ?      #',
+            '########################',
+        ]//End scene and credits
+    ];
+    this.msgs = [
+        [
+            ['Learn the game.\nUse the arrow keys to move'],
+            ['Spikes - trap set by the bad guys'],
+            ['Bad guy - bad guy'],
+            ['Plant to hide from the bad guys'],
+            ['Fake floor - you can fall through this'],
+            ['Door to take you to the next level']
+        ],//level 0
+        [
+            ['You\'re still too high.  The bad guys haven\'t reached this floor yet.  Continue to the next one']
+        ],//level 1
+        [
+            ['Here is one that was leading the pack.  Your staff managed to tie him up']
+        ],//Level 2
+        [
+            ['Uh oh.  There is one patrolling this floor.  If you need, you can hide behind that plant.  They can\'t catch you if you\'re behind a plant']
+        ],//Level 3
+        [
+            ['Looks like they\'ve got this floor a bit more covered']
+        ],//Level 4
+        [
+            ['']
+        ],//Level 5
+        [
+            ['Uh oh.  They\'ve set some traps down there.  Look out!']
+        ],//Level 6
+        [
+            ['']
+        ],//Level 7
+        [
+            ['Looks like you\'ve got quite the climb']
+        ],//Level 8
+        [
+            ['Time this right']
+        ],//Level 9
+        [
+            ['Huh.  This floor is way less guarded than the others']
+        ],//Level 10
+        [
+            ['']
+        ],//Level 11
+        [
+            ['Don\'t fall!']
+        ],//Level 12
+        [
+            ['What?  Where\'s the door?'],
+            ['You discovered a secret passage!']
+        ],//Level 13
+        [
+            ['Look! You can see all the bad guys searching for you up above!']
+        ],//Level 14
+        [
+            ['Wow!  It\'s still going!']
+        ],//Level 15
+        [
+            ['If you came this way just to read the sign, comment \'#explorer\' in the T&T'],
+            ['Uh oh.  Looks like the passageway ended']
+        ],//Level 16
+        [
+            ['Heh.  You\'re stuck']
+        ],//Level 17
+        [
+            ['']
+        ],//Level 18
+        [
+            ['So close... yet so far away']
+        ],//Level 19
+        [
+            ['Is that another secret passage?'],
+            ['It wasn\'t.  You\'ll restart soon']
+        ],//Level 20
+        [
+            ['Congratulations!  You made it down the first 20 floors!  Be careful though.  These next floors are going to be more heavily guarded than the upper ones']
+        ],//Level 21
+        [
+            ['I mean, you could try to shoot the gap...\n\nI guess']
+        ],//Level 22
+        [
+            ['']
+        ],//Level 23
+        [
+            ['Take good time']
+        ],//Level 24
+        [
+            ['']
+        ],//Level 25
+        [
+            ['']
+        ],//Level 26
+        [
+            ['']
+        ],//Level 27
+        [
+            ['THAT has GOT to be a secret way']
+        ],//Level 28
+        [
+            ['Looks like they were here, but aren\'t patrolling it for some reason.  Weird']
+        ],//Level 29
+        [
+            ['This is floor 10!  You\'re so close!'],
+            ['Must not have thought you\'d find this route']
+        ],//Level 30
+        [
+            ['Wow new level\n\n\n\n\n'],
+            ['Those are some tight jumps']
+        ],//Level 31
+        [
+            ['']
+        ],//Level 32
+        [
+            ['\n\n\n\n\n']
+        ],//Level 33
+        [
+            ['Decisions decisions...']
+        ],//Level 34
+        [
+            ['']
+        ],//Level 35
+        [
+            ['']
+        ],//Level 36
+        [
+            ['']
+        ],//Level 37
+        [
+            ['']
+        ],//Level 38
+        [
+            ['He have you seen that...'],
+            ['You\'re stuck']
+        ],//Level 39
+        [
+            ['This is it!  This is the ground floor!  Good luck!']
+        ],//Level 40
+        [
+            ['Yaaaay this is The last Level']
+            ['That\'s it!  You made it out!  Thank you so much for playing!']
+        ]
+    ];
+};
+Game.prototype.displayLevel = function(){
+    for(var y = 0; y < this.levels[this.level].length; y++){
+    for(var x = 0; x < this.levels[this.level][y].length; x++){
+        var item = this.levels[this.level][y][x];
+        
+        if(item==='@'){
+            players.add(x*25, y*25, 25, 25);
+        }
+        if(item==='$'){
+            plants.add(x*25, y*25, 25, 25);
+        }
+        if(item==='#'){
+            blocks.add(x*25, y*25, 25, 25);
+        }
+        if(item==='%'){
+            portals.add(x*25, y*25, 25, 25);
+        }
+        if(item==='!'){
+            enemies.add(x*25, y*25, 25, 25);
+        }
+        if(item==='?'){
+            signs.add(x*25, y*25, 25, 25, this.msgs[this.level][signs.Msg]);
+        }
+        if(item==='^'){
+            spikes.add(x*25, y*25, 25, 25, 'up');
+        }
+        if(item==='>'){
+            spikes.add(x*25, y*25, 25, 25, 'right');
+        }
+        if(item==='<'){
+            spikes.add(x*25, y*25, 25, 25, 'left');
+        }
+        if(item==='v'){
+            spikes.add(x*25, y*25, 25, 25, 'down');
+        }
+        if(item==='_'){
+            fakes.add(x*25, y*25, 25, 25);
+        }
+    }
+    }
+};
+var self;
+Game.prototype.apply = function(){
+    var g = this;
+    self = g;
+    
+    if(blocks.length===0){g.displayLevel();}
+    //Thanks Larry Serflaten ^^
+    
+    players.apply(blocks);
+    plants.apply();
+    blocks.apply();
+    portals.apply(players);
+    spikes.apply(players);
+    enemies.apply(players, blocks, spikes);
+    fakes.apply();
+    signs.apply(players);
+    
+    for(var i = 0; i < portals.length; i++){
+        if(portals[i].complete){
+            signs.Msg = 0;
+            Objects.remove();
+            this.level++;
+            this.displayLevel();
+        }
+    }
+    for(var i = 0; i < players.length; i++){
+        if(players[i].dead){
+            if(signs.length > 0){
+                signs.Msg = this.msgs[this.level].length-signs.length;
+            }
+            Objects.remove();
+            g.displayLevel();
+            g.apply();
+            this.dead = false;
+            this.health = 1;
+        }
+    }
+    noStroke();
+    fill(scCol[0], scCol[1], scCol[2], scTrans);
+    rect(0, 0, 600, 600);
+};
+var play = new Game();
+
+var menu = function(){
+    Background();
+    Buttons.play.update();
+    Buttons.play.display();
+    Buttons.help.update();
+    Buttons.help.display();
+    fill(0, 0, 0, 150);
+    textSize(70);
+    text('O   F   F   I   C   E\nE  S  C  A  P  E', 305, 93);
+    fill(0, 0, 0);
+    text('O   F   F   I   C   E\nE  S  C  A  P  E', 300, 85);
+};
+var help = function(){
+    Background();
+    Buttons.back.update();
+    Buttons.back.display();
+    textSize(40);
+    fill(0, 0, 0, 150);
+    text('I  N  S  T  R  U  C  T  I  O  N  S', 303, 58);
+    fill(0);
+    text('I  N  S  T  R  U  C  T  I  O  N  S', 300, 55);
+    
+    fill(0, 0, 0, 150);
+    textSize(20);
+    text('You work on the top floor of an office building.  One day, you are in the middle of a meeting when your secretary comes bursting in.  She informs you that the building has been surrounded and men are looking for you.  They have shut down the elevators, and you need to take the stairs down 40 floors without getting caught.  The farther down you go, the more dangerous it becomes.  Avoid all the men and the traps they may have set.  Good luck!\n(Good info: This game is almost impossible)\n\nArrow keys to move\nAvoid spikes\nAvoid bad guys\nEscape\n\nDon\'t die', 12, 1, 580, 590);
+    fill(0, 0, 0);
+    text('You work on the top floor of an office building.  One day, you are in the middle of a meeting when your secretary comes bursting in.  She informs you that the building has been surrounded and men are looking for you.  They have shut down the elevators, and you need to take the stairs down 40 floors without getting caught.  The farther down you go, the more dangerous it becomes.  Avoid all the men and the traps they may have set.  Good luck!\n(Good info: This game is almost impossible)\n\nArrow keys to move\nAvoid spikes\nAvoid bad guys\nEscape\n\nDon\'t die', 10, 0, 580, 590);
+};
+var game = function(){
+    background(255, 244, 209);
+    strokeWeight(1);
+    stroke(0, 0, 0, 20);
+    noFill();
+    for(var i = 0; i <= 600; i+=90){
+    for(var j = 0; j <= 600; j+=90){
+        ellipse(i, j, 5, 5);
+        line(i+10, j+10, i+80, j+80);
+        line(i+10, j-10, i+80, j-80);
+    }
+    }
+    play.apply();
+};
+
+var pages = function(){
+    switch(page){
+        case 'menu':
+            menu();
+        break;
+        case 'playing':
+            game();
+        break;
+        case 'instructions':
+            help();
+        break;
+    }
+    over = false;
+    clicked = false;
+    runTransition();
+};
+draw = function() {
+    pages();
+    //background(196, 181, 137);
+};
+
+//Questions about the code?  Feel free to ask!
+
+    }};
+
+  // Get the canvas that ProcessingJS will use
+  var canvas = document.getElementById("mycanvas"); 
+  // Pass the function to ProcessingJS constructor
+  var processingInstance = new Processing(canvas, programCode); 
+  </script>
+</html>
